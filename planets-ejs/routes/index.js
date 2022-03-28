@@ -8,27 +8,47 @@ router.get('/', function(req, res, next) {
 
 /* Страница Меркурия */
 router.get('/mercury', function(req, res, next) {
-  res.send("<h1>Страница Меркурия</h1>")
+  res.render('planets', {
+      title: "Меркурий",
+      picture: "images/mercury.webp",
+      desc: "Ближайшая к Солнцу планета Солнечной системы, наименьшая из планет земной группы."
+  });
 });
 
 /* Страница Венеры */
 router.get('/venera', function(req, res, next) {
-  res.send("<h1>Страница Венеры</h1>")
+  res.render('planets', {
+      title: "Венера",
+      picture: "images/venera.webp",
+      desc: "Вторая по удалённости от Солнца и шестая по размеру планета Солнечной системы, наряду с Меркурием, Землёй и Марсом принадлежащая к семейству планет земной группы."
+  });
 });
 
 /* Страница Земли */
 router.get('/earth', function(req, res, next) {
-  res.send("<h1>Страница Земли</h1>")
+  res.render('planets', {
+      title: "Земля",
+      picture: "images/earth.webp",
+      desc: "Третья по удалённости от Солнца планета Солнечной системы. Самая плотная, пятая по диаметру и массе среди всех планет и крупнейшая среди планет земной группы, в которую входят также Меркурий, Венера и Марс."
+  });
 });
 
 /* Страница Марса */
 router.get('/mars', function(req, res, next) {
-  res.send("<h1>Страница Марса</h1>")
+  res.render('planets', {
+      title: "Марс",
+      picture: "images/mars.webp",
+      desc: "Четвёртая по удалённости от Солнца и седьмая по размеру планета Солнечной системы; масса планеты составляет 10,7 % массы Земли."
+  });
 });
 
 /* Страница Юпитера */
 router.get('/jupiter', function(req, res, next) {
-  res.send("<h1>Страница Юпитера</h1>")
+  res.render('planets', {
+      title: "Юпитер",
+      picture: "images/jupiter.webp",
+      desc: "Крупнейшая планета Солнечной системы, пятая по удалённости от Солнца. Наряду с Сатурном, Ураном и Нептуном, Юпитер классифицируется как газовый гигант."
+  });
 });
 
 module.exports = router;
