@@ -1,0 +1,19 @@
+{
+  "name": "ejs-express",
+  "version": "1.0.0",
+  "description": "ejs-project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emirtemindarov/ejs-express.git"
+  },
+  "author": "temindarov.e.i.20@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emirtemindarov/ejs-express/issues"
+  },
+  "homepage": "https://github.com/emirtemindarov/ejs-express#readme"
+}
