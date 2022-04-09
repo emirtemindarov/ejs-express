@@ -1,15 +1,13 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/test')
+mongoose.connect('mongodb://localhost/planets-ejs')
+var Planet = require("./models/planet").Planet
 
-var schema = mongoose.Schema({ name: String })
+var planet = new Planet({
+    title: "Меркурий",
+    nick: "mercury"
+})
 
-schema.methods.meow = function(){
-    console.log(this.get("name") + " сказал мяу")
-}
-
-var Cat = mongoose.model('Cat', schema)
-
-var kitty = new Cat({ name: 'Пушок' })
-kitty.save(function (err) {
-    kitty.meow()
+console.log(planet)
+planet.save(function(err, planet, affected){
+    console.log(planet.title)
 })
