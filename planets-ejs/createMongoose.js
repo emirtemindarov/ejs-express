@@ -26,6 +26,7 @@ function close(callback){
 }
 
 
+
 async.series([
     open,
     dropDatabase,
