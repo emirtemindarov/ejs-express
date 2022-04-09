@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/planets-ejs')
-var Planet = require("./models/planet").Planet
+// var Planet = require("./models/planet").Planet
 var async = require("async")
 var data = require('./data.js').data;
 
@@ -13,6 +13,16 @@ function dropDatabase(callback){
     db.dropDatabase(callback)
 }
 
+function requireModels(callback){
+    require("./models/planet").Planet
+
+    async.each(Object.keys(mongoose.models),function(modelName){
+        mongoose.models[modelName].ensureIndexes(callback)
+    },
+        callback
+    )
+}
+
 function createHeroes(callback){
     async.each(data, function(planetData, callback){
            var planet = new mongoose.models.Planet(planetData);
@@ -22,7 +32,7 @@ function createHeroes(callback){
 };
 
 function close(callback){
-    mongoose.disconnect(callback)
+    
 }
 
 
@@ -30,11 +40,10 @@ function close(callback){
 async.series([
     open,
     dropDatabase,
-    createHeroes,
-    close
+    requireModels,
+    createHeroes
 ],
 function(err,result){
-    if(err) throw err
-    console.log("ok")
+    mongoose.disconnect()
 })
 
