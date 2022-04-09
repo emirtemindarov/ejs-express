@@ -1,15 +1,16 @@
 
 var async = require("async")
 
-async.waterfall([
-    function(callback){
-        callback(null, "МАМА", "МЫЛА","РАМУ")
-    },
-    function(arg1, arg2, arg3, callback){
-        callback(null, arg1 + ' ' + arg2 + ' ' + arg3)
-    }
+async.series([
+    async.apply(anyWord, "МАМА"),
+    async.apply(anyWord, "МЫЛА"),
+    async.apply(anyWord, "РАМУ")
 ],
-function(err, result){
-    if(err) throw err
-    console.log(result)
+function(err,result){
+    if(err) throw err;
+    console.log(result.join(' '))
 });
+
+function anyWord(arg, callback){
+callback(null, arg)
+}
