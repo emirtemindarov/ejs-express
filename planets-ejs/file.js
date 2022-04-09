@@ -1,7 +1,7 @@
 
 var async = require("async")
 
-async.series([
+async.parallel([
         firstWord,
         secondWord,
         thirdWord
