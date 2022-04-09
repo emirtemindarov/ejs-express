@@ -4,6 +4,8 @@ mongoose.connect('mongodb://localhost/planets-ejs')
 var async = require("async")
 var data = require('./data.js').data;
 
+//----------------------------------------------------------------------------------------------
+
 function open(callback){
     mongoose.connection.on("open",callback)
 }
@@ -35,7 +37,7 @@ function close(callback){
     
 }
 
-
+//----------------------------------------------------------------------------------------
 
 async.series([
     open,
