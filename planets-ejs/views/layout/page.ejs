@@ -15,23 +15,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <% menu.forEach(function(planet){ %>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/planets/mercury">Меркурий</a>
+            <a class="nav-link" aria-current="page" href="/planets/<%=planet.nick%>"><%=planet.title%></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/planets/venera">Венера</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/planets/earth">Земля</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/planets/mars">Марс</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/planets/jupiter">Юпитер</a>
-          </li>
-        </ul>
+        <% }) %>
         <ul class="nav navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#">Войти</a>

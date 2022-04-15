@@ -1,26 +1,35 @@
-var express = require('express');
-var router = express.Router();
-var planet = require("../models/planet").Planet
+var express = require('express')
+var router = express.Router()
+var Planet = require("../models/planet").Planet
+var async = require("async")
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.send('Новый маршрутизатор, для маршрутов, начинающихся с planet');
+    res.send('Новый маршрутизатор, для маошрутов, начинающихся с planet')
 });
 
 /* Страница героев */
 router.get('/:nick', function(req, res, next) {
-    console.log(`получение параметра ${req.params['nick']}`)
-    planet.findOne({nick:req.params['nick']}, function(err,planet){
-        console.log()
-        if(err) return next(err)
-        if(!planet) return next(new Error("Нет такого планеты"))
-        res.render('planets', {
-            title: planet.title,
-            picture: planet.avatar,
-            desc: planet.desc
+    async.parallel([
+            function(callback){
+                Planet.findOne({nick:req.params['nick']}, callback)
+            },
+            function(callback){
+                Planet.find({},{_id:0,title:1,nick:1},callback)
+            }
+        ],
+        function(err,result){
+            if(err) return next(err)
+            var planet = result[0]
+            var planets = result[1] || []
+            if(!planet) return next(new Error("Нет такого героя в этой книжке"))
+            res.render('planet', {
+                title: planet.title,
+                picture: planet.avatar,
+                desc: planet.desc,
+                menu: planets
+            });
         })
-    })
-    console.log(planet)
 })
 
-module.exports = router;
+module.exports = router
