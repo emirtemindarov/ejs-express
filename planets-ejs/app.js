@@ -2,16 +2,16 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require("body-parser");        ///////////
 var logger = require('morgan');
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/planets-ejs')
 
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var planets = require('./routes/planets');
-
 var app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));    //////////
+app.use(bodyParser.json())       ////////////
+
 
 // view engine setup
 app.engine('ejs',require('ejs-locals'));
@@ -26,6 +26,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
+
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var planets = require('./routes/planets');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
