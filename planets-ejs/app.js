@@ -30,11 +30,11 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var planets = require('./routes/planets');
+var planets = require('./routes/planets');    //  ?
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/planets', planets);
+app.use('/planets', planets);                 //  ?
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
