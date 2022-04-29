@@ -23,8 +23,7 @@ router.get('/:nick', function(req, res, next) {
             var planet = result[0]
             var planets = result[1] || []
             if(!planet) return next(new Error("Нет такого героя в этой книжке"))
-            console.log('gg')
-            res.render('planets', {      // <---- здесь ошибка
+            res.render('planets', {   
                 title: planet.title,
                 picture: planet.avatar,
                 desc: planet.desc,
