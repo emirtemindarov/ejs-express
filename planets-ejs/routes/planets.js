@@ -5,7 +5,7 @@ var async = require("async")
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.send('Новый маршрутизатор, для маошрутов, начинающихся с planet')
+    res.send('Новый маршрутизатор, для маршрутов, начинающихся с planet')
 });
 
 /* Страница героев */
@@ -23,7 +23,8 @@ router.get('/:nick', function(req, res, next) {
             var planet = result[0]
             var planets = result[1] || []
             if(!planet) return next(new Error("Нет такого героя в этой книжке"))
-            res.render('planet', {
+            console.log('gg')
+            res.render('planets', {      // <---- здесь ошибка
                 title: planet.title,
                 picture: planet.avatar,
                 desc: planet.desc,
