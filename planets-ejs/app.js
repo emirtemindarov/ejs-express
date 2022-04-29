@@ -6,6 +6,7 @@ var bodyParser = require("body-parser");        ///////////
 var logger = require('morgan');
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/planets-ejs')
+var session = require("express-session")
 
 var app = express();
 
@@ -27,10 +28,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var planets = require('./routes/planets');    //  ?
+
+app.use(session({
+  secret: "MercuryIsPlanet",
+  resave: true,
+  cookie:{maxAge:60*1000},
+  saveUninitialized: true
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
