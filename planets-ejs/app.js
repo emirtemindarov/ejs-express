@@ -7,8 +7,19 @@ var logger = require('morgan');
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/planets-ejs')
 var session = require("express-session")
+var MongoStore = require('connect-mongo');
+
 
 var app = express();
+
+app.use(session({
+  secret: "Planets",
+  cookie:{maxAge:60*1000},
+  store: MongoStore.create({mongoUrl: 'mongodb://localhost/planets-ejs'}),
+  resave: true,
+  saveUninitialized: true
+}))
+
 
 app.use(bodyParser.urlencoded({ extended: false }));    //////////
 app.use(bodyParser.json())       ////////////
