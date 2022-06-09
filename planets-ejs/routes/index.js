@@ -10,7 +10,7 @@ var Planet = require("../models/planet").Planet
 router.get('/', function(req, res, next) {
   req.session.greeting = "Hi!!!"
   Planet.find({},{_id:0,title:1,nick:1},function(err,menu){
-    res.cookie('greeting', 'Hi!!!').render('index', { title: 'Express', menu:menu });
+    res.cookie('greeting', 'Hi!!!').render('index', { title: 'Express', menu: menu, counter: req.session.counter  });
   });
 });
 
