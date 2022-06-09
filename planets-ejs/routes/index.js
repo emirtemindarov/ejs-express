@@ -13,6 +13,41 @@ router.get('/', function(req, res, next) {
   });
 });
 
+
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.cookie('greeting', 'Hi!!!').render('index', { title: 'Express', menu: menu });  
+// });
+
+
+
+
+
+
+
 // /* Страница Меркурия */
 // router.get('/mercury', function(req, res, next) {
 //   res.render('planets', {
@@ -58,4 +93,4 @@ router.get('/', function(req, res, next) {
 //   });
 // });
 
-module.exports = router;
+

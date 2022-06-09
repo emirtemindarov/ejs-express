@@ -4,8 +4,8 @@ var Planet = require("../models/planet").Planet
 var async = require("async")
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-    res.send('Новый маршрутизатор, для маршрутов, начинающихся с planet')
+router.get('/planets', function(req, res, next) {
+    res.send('Новый маршрутизатор, для маршрутов, начинающихся с planets')
 });
 
 /* Страница героев */
@@ -21,7 +21,8 @@ router.get('/:nick', function(req, res, next) {
         function(err,result){
             if(err) return next(err)
             var planet = result[0]
-            var planets = result[1] || []
+            var planets = result[1]
+            console.log(planets)       
             if(!planet) return next(new Error("Нет такого героя в этой книжке"))
             res.render('planets', {   
                 title: planet.title,
