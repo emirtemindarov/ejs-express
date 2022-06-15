@@ -3,9 +3,6 @@ var router = express.Router()
 var Planet = require("../models/planet").Planet
 
 
-
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   req.session.greeting = "Hi!!!"
@@ -14,6 +11,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
+/* GET login/registration page. */
+router.get('/logreg', function(req, res, next) {
+  res.render('logreg',{title: 'Вход'});
+});
+  
 
 
 module.exports = router;
