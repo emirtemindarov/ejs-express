@@ -1,3 +1,5 @@
+// можно удалить
+
 var mongoose = require("mongoose")
 mongoose.connect("mongodb://localhost/planets-ejs")
 var User = require("./models/user.js").User
