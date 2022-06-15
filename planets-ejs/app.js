@@ -55,6 +55,9 @@ app.use(session({
   saveUninitialized: true
 }))
 
+
+app.use(require("./middleware/createMenu").Middleware)
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/planets', planets);                 //  ?

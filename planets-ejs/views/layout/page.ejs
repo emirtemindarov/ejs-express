@@ -15,11 +15,15 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <% menu.forEach(function(planet){ %>
+        <% if(typeof nav == 'object' && nav){
+          nav.forEach(function(item){
+        %>
           <!-- <li class="nav-item"> -->
-            <a class="nav-item nav-link" href="/planets/<%=planet.nick%>"><%=planet.title%></a>
+            <a class="nav-item nav-link" href="/planets/<%=item.nick%>"><%=item.title%></a>
           <!-- </li> -->
-        <% }) %>
+        <%
+        })}
+        %>
         <ul class="nav navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#">Войти</a>
