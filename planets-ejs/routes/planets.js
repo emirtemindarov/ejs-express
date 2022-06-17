@@ -1,5 +1,6 @@
 var express = require('express')
 var router = express.Router()
+var checkAuth = require("./../middleware/checkAuth.js")
 var Planet = require("../models/planet").Planet
 var async = require("async")
 
@@ -9,7 +10,7 @@ router.get('/planets', function(req, res, next) {
 });
 
 /* Страница героев */
-router.get('/:nick', function(req, res, next) {
+router.get('/:nick', checkAuth, function(req, res, next) {
     async.parallel([
             function(callback){
                 Planet.findOne({nick:req.params['nick']}, callback)

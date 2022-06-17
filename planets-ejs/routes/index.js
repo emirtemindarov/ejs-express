@@ -39,7 +39,6 @@ router.post('/logreg', function(req, res, next) {
         res.redirect('/')
       } else {
         // Пароль НЕ верный
-        console.log("dddd")
         res.render('logreg',{title: 'Вход', error:"Пароль не верный"});
       }
     } else {
