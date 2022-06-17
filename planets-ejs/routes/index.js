@@ -12,9 +12,9 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET login/registration page. */
+/* GET auth page. */
 router.get('/logreg', function(req, res, next) {
-  res.render('logreg',{title: 'Вход'});
+  res.render('logreg',{title: 'Вход', error:null});
 });
 
 /* POST login/registration page. */
@@ -25,17 +25,18 @@ router.post('/logreg', function(req, res, next) {
   User.findOne({username:username},function(err,user){
     if(err) return next(err)
     if(user){
-	    //res.send("<h1>Пользователь найден</h1>");
+	    // Пользователь найден
       if(user.checkPassword(password)){
-        //res.send("<h1>Пароль верный</h1>")
+        // Пароль верный
         req.session.user = user._id
         res.redirect('/')
       } else {
-        //res.send("<h1>Пароль НЕ верный</h1>")
-        res.render('logreg', {title: 'Вход'})
+        // Пароль НЕ верный
+        console.log("dddd")
+        res.render('logreg',{title: 'Вход', error:"Пароль не верный"});
       }
     } else {
-	    //res.send("<h1>Пользователь НЕ найден</h1>")
+	    // Пользователь НЕ найден
       var user = new User({username:username,password:password})
       user.save(function(err,user){
         if(err) return next(err)
