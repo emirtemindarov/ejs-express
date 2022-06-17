@@ -17,6 +17,13 @@ router.get('/logreg', function(req, res, next) {
   res.render('logreg',{title: 'Вход', error:null});
 });
 
+/* POST logout. */
+router.post('/logout', function(req, res, next) {
+  res.locals.user = null
+  req.session.destroy()
+  res.redirect('/')
+});
+
 /* POST login/registration page. */
 router.post('/logreg', function(req, res, next) {
   var username = req.body.username

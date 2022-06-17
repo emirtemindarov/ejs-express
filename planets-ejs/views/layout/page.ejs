@@ -25,9 +25,13 @@
         })}
         %>  
         <ul class="nav navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/logreg">Войти</a>
-          </li>
+          <%if(user){%>
+            <form action="/logout" method="post">
+              <li><button type="submit" class="btn btn-link">Выйти</button></li>
+            </form>     
+          <% } else { %>
+            <li><a class="nav-link" aria-current="page" href="/logreg">Войти</a></li>
+          <% } %>        
         </ul>
       </div>
     </div>
