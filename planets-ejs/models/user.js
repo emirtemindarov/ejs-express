@@ -42,5 +42,5 @@ schemaUser.methods.checkPassword = function(password){
 
 
 
-User = mongoose.model("User",schemaUser)
+var User = mongoose.model("User", schemaUser)
 module.exports.User = User

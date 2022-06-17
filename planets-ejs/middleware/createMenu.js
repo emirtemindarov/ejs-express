@@ -1,6 +1,6 @@
 var Planet = require("./../models/planet").Planet
 
-var Middleware = function(req,res,next){
+var CreateMenu = function(req,res,next){
     res.locals.nav = []
 
     Planet.find(null,{_id:0,title:1,nick:1},function(err,result){
@@ -10,4 +10,4 @@ var Middleware = function(req,res,next){
     })
 }
 
-module.exports.Middleware = Middleware
+module.exports.CreateMenu = CreateMenu

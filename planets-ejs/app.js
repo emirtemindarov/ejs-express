@@ -56,7 +56,9 @@ app.use(session({
 }))
 
 
-app.use(require("./middleware/createMenu").Middleware)
+app.use(require("./middleware/createMenu").CreateMenu)
+app.use(require("./middleware/createUser").CreateUser)
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

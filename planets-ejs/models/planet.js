@@ -15,5 +15,5 @@ var planetSchema = mongoose.Schema({
     }
 })
 
-Planet = mongoose.model("Planet", planetSchema)
+var Planet = mongoose.model("Planet", planetSchema)
 module.exports.Planet = Planet
