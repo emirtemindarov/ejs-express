@@ -1,6 +1,5 @@
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/planets-ejs')
-// var Planet = require("./models/planet").Planet
 var async = require("async")
 var data = require('./data.js').data;
 

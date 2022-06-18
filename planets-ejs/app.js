@@ -20,8 +20,8 @@ app.use(session({
   saveUninitialized: true
 }))
 app.use(function(req,res,next){
-  req.session.counter = req.session.counter + 1 || 1
-  next()
+    req.session.counter = req.session.counter + 1 || 1  
+  console.log(next())
 })
   
 
@@ -31,7 +31,7 @@ app.use(bodyParser.json())       ////////////
 
 
 // view engine setup
-app.engine('ejs',require('ejs-locals'));
+app.engine('ejs', require('ejs-locals'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

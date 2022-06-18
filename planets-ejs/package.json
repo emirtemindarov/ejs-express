@@ -8,6 +8,7 @@
   "dependencies": {
     "async": "^3.2.3",
     "body-parser": "^1.20.0",
+    "bootstrap-icons": "^1.8.3",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
