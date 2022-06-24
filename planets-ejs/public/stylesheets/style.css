@@ -16,3 +16,8 @@ a {
 .dss {
   margin-bottom: 24px;
 }
+
+.my-img {
+  width: 60%;
+  object-fit: cover;
+}

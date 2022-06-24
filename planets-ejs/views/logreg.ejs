@@ -1,30 +1,40 @@
 <% layout('./layout/page.ejs') %>
 
-<div class="conteiner">
-    <h1>Регистрация и вход</h1>
-    <p>Введите имя пользователя и пароль, если такого пользователя нет, то он будет создан.</p>
-    <form class="form-horizontal" action="/logreg" method="post">
-        <div class="form-group">
-            <label class="control-label col-sm-1 pb-1">Имя</label>
-            <div class="col-sm-5">
-                <input class="form-control" type="text"
-                   placeholder="Введите имя" name="username"/>
-            </div>
+<div class="conteiner d-flex flex-row justify-content-center">
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-row justify-content-center">
+            <h1>Регистрация и вход</h1>
         </div>
-        <div class="form-group pt-2">
-            <label class="control-label col-sm-1 pb-1">Пароль</label>
-            <div class="col-sm-5">
-                <input class="form-control" type="password" 
-                 placeholder="Введите пароль" name="password"/>
-            </div>
+        <div class="d-flex flex-row justify-content-center">
+            <h6>Введите имя пользователя и пароль, если такого пользователя нет, то он будет создан.</h6>
         </div>
-        <div class="form-group pt-3">
-            <div class="col-sm-offset-1 col-sm-5">
-                <input class="btn btn-primary" type="submit" value="Войти"/>
+        <form class="form-horizontal" action="/logreg" method="post">
+            <div class="d-flex flex-row justify-content-center">
+                <div class="form-group w-50 mt-5">
+                    <label class="control-label col-sm-1 pb-1">Имя</label>
+                    <div>
+                        <input class="form-control" type="text"
+                        placeholder="Введите имя" name="username"/>
+                    </div>
+                </div>
             </div>
-        </div>
-        <% if(error) { %>
-            <div class="alert alert-danger mt-3"><%= error %></div>
-        <% } %>    
-    </form>    
+            <div class="d-flex flex-row justify-content-center">
+                <div class="form-group w-50 mt-3">
+                    <label class="control-label col-sm-1 pb-1">Пароль</label>
+                    <div>
+                        <input class="form-control" type="password" 
+                        placeholder="Введите пароль" name="password"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group pt-4">
+                <div class="d-flex flex-row justify-content-center">
+                    <input class="btn btn-primary" type="submit" value="Войти"/>
+                </div>
+            </div>
+            <% if(error) { %>
+                <div class="alert alert-danger mt-3"><%= error %></div>
+            <% } %>    
+        </form>  
+    </div>
 </div>
